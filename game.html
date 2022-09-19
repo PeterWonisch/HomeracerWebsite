@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Demo</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    let socket = io();
+    
+    socket.on("laptime", (msg) => {
+        document.getElementById("laptime").innerHTML = "Laptime: " + msg;
+    });
+    </script>
+</head>
+<body>
+    <button onclick="location.href='/'" type="button">Start</button>
+    <button onclick="location.href='/team'" type="button">Das Team</button>
+    <button onclick="location.href='/sponsoring'" type="button">Die Sponsoren</button>
+    <button onclick="location.href='/game'" type="button">Das Rennen</button>
+    <button onclick="location.href='/scoreboard'" type="button">Die Bestzeiten</button>
+    <button onclick="location.href='/contact'" type="button">Kontakt</button>
+    <h1>Game Page</h1>
+    <h2 id="laptime">Laptime: 0</h2>
+</body>
+</html>
