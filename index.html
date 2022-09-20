@@ -4,18 +4,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Homeracer</title>
     <script src="/socket.io/socket.io.js"></script>
+<style>
+    body {font-family: "Lato", sans-serif}
+</style>
 </head>
 <body>
-    <button onclick="location.href='/'" type="button">Start</button>
-    <button onclick="location.href='/team'" type="button">Das Team</button>
-    <button onclick="location.href='/sponsoring'" type="button">Die Sponsoren</button>
-    <button onclick="location.href='/game'" type="button">Das Rennen</button>
-    <button onclick="location.href='/scoreboard'" type="button">Die Bestzeiten</button>
-    <button onclick="location.href='/contact'" type="button">Kontakt</button>
-    <h1>Homeracer</h1>
-    <h2>Was ist Homeracer?<h2>
-    <p>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</p>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#team" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TEAM</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">KONTAKT</a>
+    <!--
+        <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">MORE<i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">More</a>
+        <a href="#" class="w3-bar-item w3-button">Extra</a>
+        <a href="#" class="w3-bar-item w3-button">Stuff</a>
+      </div>
+    </div>
+
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+-->
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#team" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TEAM</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">KONTAKT</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <!-- Home -->
+  <div class="w3-display-container w3-center">
+    <img src="logo.png" style="width:30%">
+    <div class="w3-display-bottom w3-container w3-padding-32 w3-hide-small">
+      <h3>Willkommen bei Homeracer</h3>
+      <p><b>Homeracer ist eine Diplomarbeit der HTL Rennweg. Das Projekt besteht aus zwei Ergometern und einer Modell-Auto-Rennstrecke. Die Rennstrecke wird also durch Treten betrieben und die Autos fahren entsprechend schnell. Zusätzlich wird die überschüssige Energie in einem Akku gespeichert um diese später zum Laden elektronischer Geräte zu verwenden.</b></p>   
+    </div>
+  </div>
+
+  <!-- The Team Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="team">
+    <h2 class="w3-wide">TEAM</h2>
+    <p class="w3-opacity"><i>DAS TEAM VON HOMERACER!</i></p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-half">
+        <h2 class="w3-wide">Niklas Vögl</h2>
+        <p>Projektleiter, Mechanik</p>
+        <img src="logo.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+      </div>
+      <div class="w3-half">
+        <h2 class="w3-wide">Peter Wonisch</h2>
+        <p>Stellvertretender Projektleiter, IT</p>
+        <img src="wonischPortrait.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+      </div>
+      <div class="w3-half">
+        <h2 class="w3-wide">Dawid Kruk</h2>
+        <p>Elektronik, Mechanik</p>
+        <img src="logoFull.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+      </div>
+      <div class="w3-half">
+        <h2 class="w3-wide">Matthias Klanacky</h2>
+        <p>Mechanik, Elektronik</p>
+        <img src="logoInverted.png" class="w3-round" alt="Random Name" style="width:60%">
+      </div>
+    </div>
+  </div>
+
+  <!-- The Contact Section -->
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">KONTAKT</h2>
+    <p class="w3-opacity w3-center"><i>Bei Fragen oder anderen Anliegen bitte nehmen Sie Kontakt über Telefon oder Email auf.</i></p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-center">
+        <i class="fa fa-phone" style="width:30px"></i> Tel.: Niklas phone idk<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: homeracerhtlrennweg@outlook.com<br>
+      </div>
+    </div>
+  </div>
+  
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity"></i>
+  <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity"></i>
+</footer>
+
+<script>
+var myIndex = 0;
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+</script>
+
 </body>
 </html>
