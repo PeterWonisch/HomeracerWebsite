@@ -5,10 +5,13 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const path = require('path')
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 let i = 0;
+
+app.use(express.static('public'));
+app.use('/img', express.static('img'));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'))
