@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Homeracer</title>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        console.log(window.location.pathname);
-        console.log(window.location.host);
-    </script>
 <style>
     body {font-family: "Lato", sans-serif}
 </style>
@@ -23,9 +19,9 @@
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#team" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TEAM</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">KONTAKT</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="/#team" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TEAM</a>
+    <a href="/#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">KONTAKT</a>
     <!--
         <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MORE<i class="fa fa-caret-down"></i></button>     
@@ -55,14 +51,16 @@
         <img src="/img/logo.png" style="max-width:32%">
         <div class="w3-display-bottom w3-container w3-padding-32">
             <h1>Willkommen bei Homeracer!</h1>
-            <p><b>
-                Homeracer ist eine mechatronische Diplomarbeit der HTL Rennweg in Wien.
-                Das Projekt besteht aus zwei Ergometern, einem Akku und einer Modell-Auto-Rennstrecke.
-                Durch Treten der Ergometer wird, je nach gewähltem Modus, nur der Akku aufgeladen oder auch die Rennstrecke betrieben und die Geschwindigkeit der Autos gesteuert.
-                Die aktuelle Geschwindigkeit sowie die Rundenzeit kann von einem modularen Display abgelesen werden.
-                <!--Weiters wird die beste Rundenzeit eines Durchgangs auf dieser Website gespeichert und kann unter dem Menüpunkt Scoreboard verglichen werden-->
-                Die im Akku gespeicherte elektrische Energie kann zum Laden verschiedener elektronischer Geräte verwendet werden.
-            </b></p>
+            <p>
+                <b>
+                    Homeracer ist eine mechatronische Diplomarbeit der HTL Rennweg in Wien.
+                    Das Projekt besteht aus zwei Ergometern, einem Akku und einer Modell-Auto-Rennstrecke.
+                    Durch Treten der Ergometer wird, je nach gewähltem Modus, nur der Akku aufgeladen oder auch die Rennstrecke betrieben und die Geschwindigkeit der Autos gesteuert.
+                    Die aktuelle Geschwindigkeit sowie die Rundenzeit kann von einem modularen Display abgelesen werden.
+                    <!--Weiters wird die beste Rundenzeit eines Durchgangs auf dieser Website gespeichert und kann unter dem Menüpunkt Scoreboard verglichen werden-->
+                    Die im Akku gespeicherte elektrische Energie kann zum Laden verschiedener elektronischer Geräte verwendet werden.
+                </b>
+            </p>
         </div>
         <div class="w3-display-bottom w3-container w3-padding-32">
             <h2>Ziele</h2>
@@ -96,7 +94,7 @@
                 Homeracer ist auch am Tag der offenen Tür der HTL Rennweg zu sehen.
                 Das Projekt kann natürlich vorort selbst ausprobiert und die Ergebnisse live mit allen anderen Benutzern verglichen werden.
             </p>
-</div>
+        </div>
     </div>
 
     <!-- The Team Section -->
@@ -145,11 +143,10 @@
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
     <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity"></i>
     <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity"></i>
-    <!--
     <br />
-    <i onclick="location.href='/Datenschutzrichtlinien'" class="w3-hover-opacity">Datenschutzrichtlinien</i>
-    <i onclick="location.href='/Impressum'" class="w3-hover-opacity">Impressum</i>
-        -->
+    <i onclick="location.href='/datenschutz'" class="w3-hover-opacity">Datenschutzrichtlinien</i>
+    <br />
+    <i onclick="location.href='/impressum'" class="w3-hover-opacity">Impressum</i>
     <p>Alle Rechte vorbehalten Homeracer, HTL Rennweg, Wien 2022</p>
 </footer>
 

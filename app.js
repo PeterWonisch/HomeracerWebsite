@@ -10,6 +10,7 @@ const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 let i = 0;
 
+
 app.use(express.static('public'));
 app.use('/img', express.static('img'));
 
@@ -17,10 +18,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
 app.get('/team', (req, res) => {
-    res.sendFile('team.html', {root: __dirname })
+    res.sendFile('impressum.html', {root: __dirname })
 });
 app.get('/sponsoring', (req, res) => {
-    res.sendFile('sponsoring.html', {root: __dirname })
+    res.sendFile('team.html', {root: __dirname })
 });
 app.get('/game', (req, res) => {
     res.sendFile('game.html', {root: __dirname })
@@ -30,6 +31,12 @@ app.get('/scoreboard', (req, res) => {
 });
 app.get('/contact', (req, res) => {
     res.sendFile('contact.html', {root: __dirname })
+});
+app.get('/impressum', (req, res) => {
+    res.sendFile('impressum.html', { root: __dirname })
+});
+app.get('/datenschutz', (req, res) => {
+    res.sendFile('datenschutz.html', { root: __dirname })
 });
 
 /*
@@ -41,7 +48,7 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 */
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log('listening on ' + PORT);
 });
 
