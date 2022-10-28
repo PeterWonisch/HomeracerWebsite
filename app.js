@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5000
 const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 let i = 0;
+let laptime = "0";
 const stringToWrite = "gday";
 
 fs.writeFile("./test.txt", stringToWrite, (err) => {
@@ -20,20 +21,20 @@ return;
   }
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//for urlencoded message
+//app.use(bodyParser.urlencoded({ extended: false }));
+
+//for json formated message
+//app.use(bodyParser.json());
+
+//for plain text (String)
+app.use(bodyParser.text());
 
 app.use(express.static('public'));
 app.use('/img', express.static('img'));
-app.use('/file', express.static('file'));
 
-app.post("/",(request,response) => {
-    console.log(request.body); i++; fs.writeFile("./test.txt", String(i), (err) => {
-if (err) {
-    console.error(err);
-return;
-  }
-});
+app.post("/",(req,res) => {
+    laptime = req.body; console.log(laptime); res.send("OK");
 });
 
 app.get('/', (req, res) => {
@@ -61,8 +62,13 @@ app.get('/datenschutz', (req, res) => {
     res.sendFile('datenschutz.html', { root: __dirname })
 });
 app.get('/lap', (req, res) => {
-    res.send(String(i))
+    res.send(laptime)
 });
+app.post('/example-endpoint', (req, res) => {
+    const  data = req.body.data;
+    console.log(req.body.data);
+    // do stuff with your data here.
+})
 
 /*
 express()
