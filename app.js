@@ -12,14 +12,6 @@ const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 let i = 0;
 let laptime = "0";
-const stringToWrite = "gday";
-
-fs.writeFile("./test.txt", stringToWrite, (err) => {
-if (err) {
-    console.error(err);
-return;
-  }
-});
 
 //for urlencoded message
 //app.use(bodyParser.urlencoded({ extended: false }));
@@ -64,11 +56,6 @@ app.get('/datenschutz', (req, res) => {
 app.get('/lap', (req, res) => {
     res.send(laptime)
 });
-app.post('/example-endpoint', (req, res) => {
-    const  data = req.body.data;
-    console.log(req.body.data);
-    // do stuff with your data here.
-})
 
 /*
 express()
