@@ -1,7 +1,7 @@
 
 
 window.addEventListener("load", () => {
-    console.log("hi");
+    console.log("Game connected");
     const socket = io();
 
     let laptimeContainer = document.querySelector("#laptime");
