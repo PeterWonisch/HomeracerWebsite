@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\public",
+    "\\public\\socket.io"
   ],
-  "SelectedNode": "\\app.js",
+  "SelectedNode": "\\public\\socket.io\\socket.io.js",
   "PreviewInSolutionExplorer": false
 }

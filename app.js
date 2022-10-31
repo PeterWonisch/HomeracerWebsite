@@ -1,15 +1,20 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const fs = require("fs");
-const app = express();
 const http = require('http');
-const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
 const path = require('path')
-const PORT = process.env.PORT || 5000
 const { dirname } = require('path');
+
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
+//const io = new Server(server, { path: "/" });
+const PORT = process.env.PORT || 5000
 const appDir = dirname(require.main.filename);
+
+
 let i = 0;
 let laptime = "0";
 
@@ -27,6 +32,7 @@ app.use('/img', express.static('img'));
 
 app.post("/",(req,res) => {
     laptime = req.body; console.log(laptime); res.send("OK");
+    io.emit("laptime", laptime);
 });
 
 app.get('/', (req, res) => {
@@ -66,10 +72,6 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 */
 
-app.listen(PORT, () => {
-  console.log('listening on ' + PORT);
-});
-
 io.on('connection', (socket) => {
     console.log('a user connected');
 
@@ -80,8 +82,14 @@ io.on('connection', (socket) => {
         console.log('page: ' + msg);
         
     });
-
+    /*
     setInterval(() => {
         socket.emit("laptime", i++);
-    }, 1000);
+    }, 1000);*/
 });
+
+//app.listen(PORT, () => {
+//  console.log('listening on ' + PORT);
+//});
+
+server.listen(PORT);
