@@ -14,9 +14,8 @@ const io = new Server(server);
 const PORT = process.env.PORT || 5000
 const appDir = dirname(require.main.filename);
 
-
 let i = 0;
-let laptime = "0";
+let laptime = "";
 
 //for urlencoded message
 //app.use(bodyParser.urlencoded({ extended: false }));
