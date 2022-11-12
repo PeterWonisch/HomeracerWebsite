@@ -58,9 +58,6 @@ app.get('/impressum', (req, res) => {
 app.get('/datenschutz', (req, res) => {
     res.sendFile('datenschutz.html', { root: __dirname })
 });
-app.get('/lap', (req, res) => {
-    res.send(laptime)
-});
 
 /*
 express()
