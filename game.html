@@ -53,7 +53,7 @@
         </div>
         <div class="w3-display-container">
             <div class="w3-display-bottom w3-container w3-padding-32 w3-center">
-                <h1 id="laptime">Highscore</h1>
+                <h1 id="laptime" style="font-size: 128px">Rundenzeit</h1>
                 <h1 id="laptimeA">Player A</h1>
                 <h1 id="laptimeB">Player B</h1>
                 <h1 id="output">Output</h1>
@@ -61,6 +61,21 @@
             <div id="laptimeInput" class="w3-display-container w3-center">
                 <input type="text" id="userInput" name="userInput"><br><br>
                 <input type="submit" id="submit" value="Eingabe" onclick="addUser(document.getElementById('userInput').value)">
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+            <div class="w3-display-container w3-center">
+                <h1>Scoreboard</h1>
+                <p id="scoreboard"></p>
+                <table id="table" border="1" style="margin-left: auto; margin-right: auto;">
+                    <tr id="1tr">
+                        <td>Platz</td>
+                        <td>Name</td>
+                        <td>Zeit</td>
+                    </tr>
+                </table>
                 <br />
                 <br />
                 <br />

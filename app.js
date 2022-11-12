@@ -11,11 +11,13 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 //const io = new Server(server, { path: "/" });
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 const appDir = dirname(require.main.filename);
 
 let i = 0;
 let laptime = "";
+let firstUserConnect = 1;
+let scores;
 
 //for urlencoded message
 //app.use(bodyParser.urlencoded({ extended: false }));
@@ -68,8 +70,30 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 */
 
+
+
 io.on('connection', (socket) => {
     console.log('a user connected');
+
+    function readScoreboard() {
+    fs.readFile('scoreboard.txt', (err, data) => {
+        scores = String(data).split(';');
+        for (let j=0;j<scores.length;j++) {
+            scores[j] = scores[j].split(',');
+        }
+        for (let i = 0; i < scores.length-1; i++) {
+            for (let j = i+1; j < scores.length-1; j++) {
+               if(+scores[i][1] > +scores[j][1]) {
+                   const temp = scores[i];
+                   scores[i] = scores[j];
+                   scores[j] = temp;
+               }
+            }
+        }
+        console.log(scores);
+        socket.emit('scores', scores)
+    })
+}
 
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
@@ -78,11 +102,27 @@ io.on('connection', (socket) => {
         console.log('page: ' + msg);
         
     });
-    /*
-    setInterval(() => {
-        socket.emit("laptime", i++);
-    }, 1000);*/
+    socket.on('data', (username) => {
+        fs.appendFile('scoreboard.txt', username + "," + i + ";", function (err) {       //change i to laptime
+            if (err) throw err;
+            console.log ("highscore saved");
+            setTimeout(() => { readScoreboard() }, 100);
+        });
+    });
+
+    socket.on('scores', readScoreboard);
+
+    if (firstUserConnect) {
+        console.log('laptime simulation started');
+        firstUserConnect = 0;
+        io.emit("laptime", i++);
+        setInterval(() => {
+            io.emit("laptime", i++);
+        }, 10000);
+    }
 });
+
+
 
 //app.listen(PORT, () => {
 //  console.log('listening on ' + PORT);
