@@ -29,7 +29,7 @@
         }
     </style>
 </head>
-<body onload="startUp()">
+<body onload="startUpScoreboard()">
     <div class="w3-top">
         <div class="w3-bar w3-black w3-card">
             <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
@@ -64,23 +64,11 @@
 
         <!-- Home -->
         <div class="w3-display-container">
-            <div class="w3-display-bottom w3-container w3-padding-32 w3-center">
-                <h1 id="laptime" style="font-size: 128px">Rundenzeit</h1>
-                <h1 id="laptimeA">Player A</h1>
-                <h1 id="laptimeB">Player B</h1>
-            </div>
-            <button onclick="scroll(0, 100);">click to scroll to the 100th pixel</button>
-            <div id="laptimeInput" class="w3-display-container w3-center">
-                <input type="text" id="userInput" name="userInput"><br><br>
-                <input type="submit" id="submit" value="Eingabe" onclick="addUser(document.getElementById('userInput').value)">
-                <br />
-                <br />
-                <br />
-                <br />
-            </div>
             <div class="w3-display-container w3-center" style="overflow-x: auto;">
-                <h1>Scoreboard</h1>
-                <h1 id="output">Output</h1>
+                <br />
+                <br />
+                <h1>Bestenliste</h1>
+                <p id="scoreboard"></p>
                 <table id="table" style="margin-left: auto; margin-right: auto; width: 50%; text-align: left;">
                     <tr id="1tr">
                         <th>Platz</th>
@@ -88,14 +76,13 @@
                         <th>Zeit</th>
                     </tr>
                 </table>
-
-                <br />
-                <br />
-                <br />
-                <br />
             </div>
         </div>
+
+        <div class="w3-display-container w3-center">
+            <img src="/img/logo.png" style="max-width:32%">
         </div>
+    </div>
 
 
 </body>

@@ -76,24 +76,24 @@ io.on('connection', (socket) => {
     console.log('a user connected');
 
     function readScoreboard() {
-    fs.readFile('scoreboard.txt', (err, data) => {
-        scores = String(data).split(';');
-        for (let j=0;j<scores.length;j++) {
-            scores[j] = scores[j].split(',');
-        }
-        for (let i = 0; i < scores.length-1; i++) {
-            for (let j = i+1; j < scores.length-1; j++) {
-               if(+scores[i][1] > +scores[j][1]) {
-                   const temp = scores[i];
-                   scores[i] = scores[j];
-                   scores[j] = temp;
-               }
+        fs.readFile('scoreboard.txt', (err, data) => {
+            scores = String(data).split(';');
+            for (let j=0;j<scores.length;j++) {
+                scores[j] = scores[j].split(',');
             }
-        }
-        console.log(scores);
-        socket.emit('scores', scores)
-    })
-}
+            for (let i = 0; i < scores.length-1; i++) {
+                for (let j = i+1; j < scores.length-1; j++) {
+                   if(+scores[i][1] > +scores[j][1]) {
+                       const temp = scores[i];
+                       scores[i] = scores[j];
+                       scores[j] = temp;
+                   }
+                }
+            }
+            console.log(scores);
+            socket.emit('scores', scores)
+        })
+    }
 
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);

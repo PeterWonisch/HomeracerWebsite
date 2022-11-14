@@ -1,8 +1,11 @@
 const socket = io();
 
+let myCurrentCell = document.createElement("td");
+
 let laptime = "";
 let laptimeA = "";
 let laptimeB = "";
+let username = "";
 
 let laptimeContainer = document.querySelector("#laptime");
 let laptimeAContainer = document.querySelector("#laptimeA");
@@ -23,22 +26,40 @@ function generateTable(data) {
         const myCurrentRow = document.createElement("tr");
 
         for (let i = 0; i < 3; i++) {
-        // creates a <td> element
-        const myCurrentCell = document.createElement("td");
-        // creates a Text Node
-        if (i) {
-            currentText = document.createTextNode(
-                data[j][i-1]
-            );
-        } else {
-            currentText = document.createTextNode(
-                j+1 + "."
-            );
-        }
-        // appends the Text Node we created into the cell <td>
-        myCurrentCell.appendChild(currentText);
-        // appends the cell <td> into the row <tr>
-        myCurrentRow.appendChild(myCurrentCell);
+            // creates a <td> element
+            if (data[j][0]==username) {
+                myCurrentCell = document.createElement("th");
+            } else {
+                myCurrentCell = document.createElement("td");
+            }
+            // creates a Text Node
+            if (i) {
+                currentText = document.createTextNode(
+                    data[j][i-1]
+                );
+            } else {
+                if (j < 3) {
+                    currentText = document.createElement('img');
+                    currentText.style.width = "20px";
+                    currentText.style.height = "20px";
+                    switch (j) {
+                        case 0: currentText.src = "/img/crown_gold.png"; break;
+                        case 1: currentText.src = "/img/crown_silver.png"; break;
+                        case 2: currentText.src = "/img/crown_bronze.png"; break;
+                        default: currentText.src = "/img/crown_gold.png"; break;
+                    }
+                        
+                } else {
+                    currentText = document.createTextNode(
+                        j + 1 + "."
+                    );
+                }
+
+            }
+            // appends the Text Node we created into the cell <td>
+            myCurrentCell.appendChild(currentText);
+            // appends the cell <td> into the row <tr>
+            myCurrentRow.appendChild(myCurrentCell);
         }
         // appends the row <tr> into <tbody>
         document.getElementById("table").appendChild(myCurrentRow);
@@ -54,14 +75,19 @@ function startUp() {
     socket.emit('scores');
 }
 
-function addToDatabase(username) {
+function startUpScoreboard() {
+    socket.emit('scores');
+}
+
+function addToDatabase() {
    socket.emit('data', username);
 }
 
-function addUser(username) {
+function addUser(input) {
+    username = input;
     userInputContainer.value = "";
     laptimeInputContainer.style.display = "none";
-    addToDatabase(username);
+    addToDatabase();
 }
 
 function laptimeDecoder() {
