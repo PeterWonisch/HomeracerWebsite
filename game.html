@@ -14,18 +14,32 @@
         body {
             font-family: "Lato", sans-serif
         }
+
         table {
             border-collapse: collapse;
             width: 100%;
         }
 
         th, td {
-            text-align: left;
+            text-align: center;
             padding: 8px;
         }
 
         tr:nth-child(even) {
             background-color: #f2f2f2;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .image {
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-left: 20px;
+            flex-basis: 100%
         }
     </style>
 </head>
@@ -36,7 +50,9 @@
             <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
             <a href="/#team" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TEAM</a>
             <a href="/#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">KONTAKT</a>
+            <a href="/#sponsor" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SPONSOREN</a>
             <a href="/scoreboard" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BESTENLISTE</a>
+            <img src="/img/logoInverted.png" align="right" style="max-height:46px;">
             <!--
             <div class="w3-dropdown-hover w3-hide-small">
           <button class="w3-padding-large w3-button" title="More">MORE<i class="fa fa-caret-down"></i></button>
@@ -56,28 +72,41 @@
     <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
         <a href="#team" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TEAM</a>
         <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">KONTAKT</a>
+        <a href="#sponsor" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SPONSOREN</a>
         <a href="#scoreboard" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BESTENLISTE</a>
     </div>
 
     <!-- Page content -->
-    <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
-        <!-- Home -->
-        <div class="w3-display-container">
-            <div class="w3-display-bottom w3-container w3-padding-32 w3-center">
+
+
+    <div class="w3-content" style="max-width:2000px;margin-top:46px">
+        <div class="container">
+            <div class="image">
+                <img src="/img/logo2.png" align="left" style="padding-left: 20px; max-width: 400px; width: 100%; border-radius: 15%;">
+            </div>
+            <div style="height: 300px">
                 <h1 id="laptime" style="font-size: 128px">Rundenzeit</h1>
                 <h1 id="laptimeA">Player A</h1>
                 <h1 id="laptimeB">Player B</h1>
+                <div id="laptimeInput" class="w3-display-container w3-center">
+                    <input type="text" id="userInput" name="userInput" onkeydown="search()"><br><br>
+                    <input type="submit" id="submit" value="Eingabe" onclick="addUser(document.getElementById('userInput').value)">
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
-            <button onclick="scroll(0, 100);">click to scroll to the 100th pixel</button>
-            <div id="laptimeInput" class="w3-display-container w3-center">
-                <input type="text" id="userInput" name="userInput"><br><br>
-                <input type="submit" id="submit" value="Eingabe" onclick="addUser(document.getElementById('userInput').value)">
-                <br />
-                <br />
-                <br />
-                <br />
+            <div class="image">
+                <img src="/img/carreraCropSquare.jpg" align="right" style="max-width: 400px; width: 100%; border-radius: 15%;">
             </div>
+        </div>
+
+        <!-- Home -->
+        <div class="w3-display-container">
+
             <div class="w3-display-container w3-center" style="overflow-x: auto;">
                 <h1>Scoreboard</h1>
                 <h1 id="output">Output</h1>
@@ -88,21 +117,24 @@
                         <th>Zeit</th>
                     </tr>
                 </table>
-
-                <br />
-                <br />
-                <br />
-                <br />
             </div>
         </div>
+
+        <div class="w3-display-container w3-center">
+            <img src="/img/logo.png" style="max-width:32%">
         </div>
+    </div>
 
 
 </body>
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-    <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity"></i>
-    <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity"></i>
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey">
+    <img src="/img/htl3rLogoCrop.png" style="max-height: 100px">
+    <br />
+    <br />
+    <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity" style="font-size: 50px"></i>
+    <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity" style="font-size: 50px"></i>
+    <br />
     <br />
     <i onclick="location.href='/datenschutz'" class="w3-hover-opacity">Datenschutzrichtlinien</i>
     <br />
@@ -121,6 +153,14 @@
         } else {
             x.className = x.className.replace(" w3-show", "");
         }
+    }
+
+    function scrollUser() {
+        window.scrollTo(0, 9999);
+    }
+
+    function scroll0() {
+        window.scrollTo(0, 0);
     }
 
 </script>

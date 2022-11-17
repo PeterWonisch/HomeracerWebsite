@@ -6,6 +6,7 @@ let laptime = "";
 let laptimeA = "";
 let laptimeB = "";
 let username = "";
+let place = 0;
 
 let laptimeContainer = document.querySelector("#laptime");
 let laptimeAContainer = document.querySelector("#laptimeA");
@@ -29,6 +30,8 @@ function generateTable(data) {
             // creates a <td> element
             if (data[j][0]==username) {
                 myCurrentCell = document.createElement("th");
+                place = j+1;
+                console.log("place" + place)
             } else {
                 myCurrentCell = document.createElement("td");
             }
@@ -40,8 +43,8 @@ function generateTable(data) {
             } else {
                 if (j < 3) {
                     currentText = document.createElement('img');
-                    currentText.style.width = "20px";
-                    currentText.style.height = "20px";
+                    currentText.style.width = "32px";
+                    currentText.style.height = "18px";
                     switch (j) {
                         case 0: currentText.src = "/img/crown_gold.png"; break;
                         case 1: currentText.src = "/img/crown_silver.png"; break;
@@ -64,6 +67,7 @@ function generateTable(data) {
         // appends the row <tr> into <tbody>
         document.getElementById("table").appendChild(myCurrentRow);
     }
+    window.scrollTo(0, 39 * place + 8);
 }
 
 function startUp() {
@@ -73,14 +77,16 @@ function startUp() {
     laptimeInputContainer.style.display = "none";
     outputContainer.style.display = "none";
     socket.emit('scores');
+    window.scrollTo(0, 0);
 }
 
 function startUpScoreboard() {
     socket.emit('scores');
+    window.scrollTo(0, 0);
 }
 
 function addToDatabase() {
-   socket.emit('data', username);
+    socket.emit('data', username);
 }
 
 function addUser(input) {
@@ -108,6 +114,8 @@ function laptimeDecoder() {
         laptimeBContainer.style.display = "none";
         laptimeContainer.innerHTML = laptime;
         laptimeInput();
+        window.scrollTo(0, 0);
+
     //}
 }
 
@@ -115,8 +123,13 @@ function laptimeInput() {
     laptimeInputContainer.style.display = "block";
 }
 
+function search() {
+    if (event.key === 'Enter') {
+        addUser(document.getElementById('userInput').value)
+    }
+}
+
 window.addEventListener("load", () => {
-    console.log("test");
 
     socket.on("laptime", (data) => {
         console.log(data); laptime = data; laptimeDecoder();

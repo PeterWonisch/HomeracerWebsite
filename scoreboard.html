@@ -14,18 +14,32 @@
         body {
             font-family: "Lato", sans-serif
         }
+
         table {
             border-collapse: collapse;
             width: 100%;
         }
 
         th, td {
-            text-align: left;
+            text-align: center;
             padding: 8px;
         }
 
         tr:nth-child(even) {
             background-color: #f2f2f2;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .image {
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-left: 20px;
+            flex-basis: 100%
         }
     </style>
 </head>
@@ -36,7 +50,9 @@
             <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
             <a href="/#team" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TEAM</a>
             <a href="/#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">KONTAKT</a>
+            <a href="/#sponsor" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SPONSOREN</a>
             <a href="/scoreboard" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BESTENLISTE</a>
+            <img src="/img/logoInverted.png" align="right" style="max-height:46px;">
             <!--
             <div class="w3-dropdown-hover w3-hide-small">
           <button class="w3-padding-large w3-button" title="More">MORE<i class="fa fa-caret-down"></i></button>
@@ -56,6 +72,7 @@
     <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
         <a href="#team" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TEAM</a>
         <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">KONTAKT</a>
+        <a href="#sponsor" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SPONSOREN</a>
         <a href="#scoreboard" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BESTENLISTE</a>
     </div>
 
@@ -63,11 +80,19 @@
     <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
         <!-- Home -->
+        <div class="container">
+            <div class="image">
+                <img src="/img/logo2.png" align="left" style="max-width: 300px; width: 100%; border-radius: 20%;">
+            </div>
+            <div>
+                <h1 style="font-size: 48px">Bestenliste</h1>
+            </div>
+            <div class="image">
+                <img src="/img/carreraCropSquare.jpg" align="right" style="max-width: 300px; width: 100%; border-radius: 20%;">
+            </div>
+        </div>
         <div class="w3-display-container">
             <div class="w3-display-container w3-center" style="overflow-x: auto;">
-                <br />
-                <br />
-                <h1>Bestenliste</h1>
                 <p id="scoreboard"></p>
                 <table id="table" style="margin-left: auto; margin-right: auto; width: 50%; text-align: left;">
                     <tr id="1tr">
@@ -87,9 +112,13 @@
 
 </body>
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-    <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity"></i>
-    <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity"></i>
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey">
+    <img src="/img/htl3rLogoCrop.png" style="max-height: 100px">
+    <br />
+    <br />
+    <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity" style="font-size: 50px"></i>
+    <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity" style="font-size: 50px"></i>
+    <br />
     <br />
     <i onclick="location.href='/datenschutz'" class="w3-hover-opacity">Datenschutzrichtlinien</i>
     <br />
