@@ -39,20 +39,11 @@ app.post("/",(req,res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
-app.get('/team', (req, res) => {
-    res.sendFile('impressum.html', {root: __dirname })
-});
-app.get('/sponsoring', (req, res) => {
-    res.sendFile('team.html', {root: __dirname })
-});
 app.get('/game', (req, res) => {
     res.sendFile('game.html', {root: __dirname })
 });
 app.get('/scoreboard', (req, res) => {
     res.sendFile('scoreboard.html', {root: __dirname })
-});
-app.get('/contact', (req, res) => {
-    res.sendFile('contact.html', {root: __dirname })
 });
 app.get('/impressum', (req, res) => {
     res.sendFile('impressum.html', { root: __dirname })
