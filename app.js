@@ -39,7 +39,7 @@ app.post("/",(req,res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
-app.get('/game', (req, res) => {
+app.get('/devGame', (req, res) => {
     res.sendFile('game.html', {root: __dirname })
 });
 app.get('/scoreboard', (req, res) => {
@@ -50,6 +50,14 @@ app.get('/impressum', (req, res) => {
 });
 app.get('/datenschutz', (req, res) => {
     res.sendFile('datenschutz.html', { root: __dirname })
+});
+app.get('/devScoreboard', (req, res) => {
+    res.sendFile('scoreboard.txt', { root: __dirname })
+});
+app.get('/devDeleteScores', (req, res) => {
+    scores = [];
+    fs.unlinkSync('scoreboard.txt')
+
 });
 
 /*
