@@ -82,11 +82,11 @@ io.on('connection', (socket) => {
             }
             for (let i = 0; i < scores.length-1; i++) {
                 for (let j = i+1; j < scores.length-1; j++) {
-                   if(+scores[i][1] > +scores[j][1]) {
-                       const temp = scores[i];
-                       scores[i] = scores[j];
-                       scores[j] = temp;
-                   }
+                    if (+scores[i][1] > +scores[j][1]) {
+                        const temp = scores[i];
+                        scores[i] = scores[j];
+                        scores[j] = temp
+                    }
                 }
             }
             console.log(scores);

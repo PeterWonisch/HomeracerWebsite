@@ -112,7 +112,7 @@ function laptimeDecoder() {
         laptimeContainer.style.display = "block";
         laptimeAContainer.style.display = "none";
         laptimeBContainer.style.display = "none";
-        laptimeContainer.innerHTML = laptime;
+        laptimeContainer.innerHTML = laptime + "ms";
         laptimeInput();
         window.scrollTo(0, 0);
 
