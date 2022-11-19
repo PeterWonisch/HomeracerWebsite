@@ -10,55 +10,34 @@
     <link rel="stylesheet" href="/css/stylesheet.css">
     <title>Homeracer</title>
     <script src="/socket.io/socket.io.js"></script>
-    <style>
-        body {
-            font-family: "Lato", sans-serif
-        }
-    </style>
 </head>
 <body>
-
-<!-- Navbar -->
-<div class="w3-top">
-    <div class="w3-bar w3-black w3-card">
-        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-        <a href="/#team" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TEAM</a>
-        <a href="/#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">KONTAKT</a>
-        <a href="/#sponsor" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SPONSOREN</a>
-        <a href="/scoreboard" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BESTENLISTE</a>
-        <img src="/img/logoInverted.png" align="right" style="max-height:46px;">
-        <!--
-            <div class="w3-dropdown-hover w3-hide-small">
-          <button class="w3-padding-large w3-button" title="More">MORE<i class="fa fa-caret-down"></i></button>
-          <div class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="#" class="w3-bar-item w3-button">More</a>
-            <a href="#" class="w3-bar-item w3-button">Extra</a>
-            <a href="#" class="w3-bar-item w3-button">Stuff</a>
-          </div>
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="/#team" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TEAM</a>
+            <a href="/#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">KONTAKT</a>
+            <a href="/#sponsor" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SPONSOREN</a>
+            <a href="/scoreboard" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BESTENLISTE</a>
+            <img src="/img/logoInverted.png" align="right" style="max-height:46px;">
         </div>
-
-        <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
-    -->
     </div>
-</div>
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+        <a href="#team" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TEAM</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">KONTAKT</a>
+        <a href="#sponsor" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SPONSOREN</a>
+        <a href="/scoreboard" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BESTENLISTE</a>
+    </div>
 
-<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-    <a href="#team" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TEAM</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">KONTAKT</a>
-    <a href="#sponsor" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SPONSOREN</a>
-    <a href="/scoreboard" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BESTENLISTE</a>
-</div>
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+    <!-- Page content -->
 
     <!-- Home -->
     <div class="w3-display-container w3-center">
         <br>
-        <img src="/img/logo2.png" style="max-width:1300px; width:49%">
-        <img src="/img/carreraCrop32.png" style="max-width:1300px; width:49%; border-radius: 20px">
+        <img src="/img/logo2Banner.png" style="padding-top: 50px; max-width:1300px; width:50%">
         <div class="w3-display-bottom w3-container w3-padding-32" style="max-width:1300px; margin-left: auto; margin-right: auto;">
             <h1>Willkommen bei Homeracer!</h1>
             <br>
@@ -68,51 +47,51 @@
                     Das Projekt besteht aus zwei Ergometern, einem Akku und einer Modell-Auto-Rennstrecke.
                     Durch Treten der Ergometer wird, je nach gewähltem Modus, der Akku aufgeladen oder auch die Rennstrecke betrieben und die Geschwindigkeit der Autos gesteuert.
                     Die aktuelle Geschwindigkeit sowie die Rundenzeit kann von einem modularen Display abgelesen werden.
-                    <!--Weiters wird die beste Rundenzeit eines Durchgangs auf dieser Website gespeichert und kann unter dem Menüpunkt Scoreboard verglichen werden-->
+                    Weiters kann die beste Rundenzeit auf dieser Website gespeichert und unter dem Menüpunkt Bestenliste verglichen werden.
                     Die im Akku gespeicherte elektrische Energie kann zum Laden verschiedener elektronischer Geräte verwendet werden.
                 </b>
             </p>
         </div>
-        <div class="container">
-            <div class="w3-display-bottom w3-container w3-padding-32" style="max-width: 800px; margin-left: 10%; margin-right: 0%; text-align: left">
-                <h2 style="text-align: center">Ziele</h2>
-                <br>
-                <p style="text-align: center"><b>Ergometer</b></p>
-                <p>
-                    Das erste und wichtigste unserer Ziele ist ein Ergometer zu konstruieren.
-                    Das muss natürlich nicht neu entworfen werden und wird mithilfe von schon vorhandenen Vorlagen von uns speziell gefertigt.
-                </p>
-                <br>
-                <p style="text-align: center"><b>Akku</b></pstyle="text-align:>
-                <p>
-                    Ein besonders wichtiger Teil dieser Diplomarbeit ist auch der Akku.
-                    Dieser soll geladen und zum Laden verwendet werden können.
-                    Der Akku wird selbst ausgelegt und gebaut um die gewünschte und nötige Leistung zu erzielen.
-                    Verwendet werden kann dieser um entweder eine Modell-Auto-Rennstrecke zu betreiben oder andere elektronische Geräte mit Energie zu versorgen.
-                </p>
-                <br>
-                <p style="text-align: center"><b>Rennstrecke</b></p>
-                <p>
-                    Durch Treten der Ergometer kann die Geschwindigkeit der Modell-Autos auf der Rennstrecker kontrolliert werden.
-                    Je schneller getreten wird, desto schneller drehen die Modell-Autos ihre Runden und desto schneller lädt sich der Akku auf.
-                    Die erarbeiteten Rundenzeiten und Höchsgeschwindigkeiten werden lokal auf einem modularen Display ausgegeben und online abgespeichert.
-                </p>
-                <br>
-                <p style="text-align: center"><b>Website</b></p>
-                <p>
-                    Um das Vergleichen mit anderen Benutzern zu ermöglichen dient diese Website als Hotspot.
-                    Auf einem Scoreboard werden Rundenzeiten, sowie Höchstgeschwindigkeiten präsentiert und mit anderen Benutzern verglichen.
-                </p>
-                <br>
-                <p style="text-align: center"><b>Tag der offenen Tür HTL Rennweg</b></p>
-                <p>
-                    Homeracer ist auch am Tag der offenen Tür der HTL Rennweg zu sehen.
-                    Das Projekt kann natürlich vorort selbst ausprobiert und die Ergebnisse live mit allen anderen Benutzern verglichen werden.
-                </p>
-            </div>
-            <div>
-                <img class="image" src="/img/bikeCrop32.png" style="max-width:1300px; width:100%; border-radius: 20px">
-            </div>
+    </div>
+    <div class="container2">
+        <div class ="item" style ="text-align: left;">
+            <h2>Ziele</h2>
+            <br>
+            <p><b><img src="/img/iconErgometer.png" style="max-width: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ergometer</b></p>
+            <p>
+                Das erste und wichtigste unserer Ziele ist ein Ergometer zu konstruieren.
+                Das muss natürlich nicht neu entworfen werden und wird mithilfe von schon vorhandenen Vorlagen von uns speziell gefertigt.
+            </p>
+            <br>
+            <p><b><img src="/img/iconBatterie.png" style="max-width: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Akku</b></p>
+            <p>
+                Ein besonders wichtiger Teil dieser Diplomarbeit ist auch der Akku.
+                Dieser soll geladen und zum Laden verwendet werden können.
+                Der Akku wird selbst ausgelegt und gebaut um die gewünschte und nötige Leistung zu erzielen.
+                Verwendet werden kann dieser um entweder eine Modell-Auto-Rennstrecke zu betreiben oder andere elektronische Geräte mit Energie zu versorgen.
+            </p>
+            <br>
+            <p><b><img src="/img/iconTrack.png" style="max-width: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rennstrecke</b></p>
+            <p>
+                Durch Treten der Ergometer kann die Geschwindigkeit der Modell-Autos auf der Rennstrecker kontrolliert werden.
+                Je schneller getreten wird, desto schneller drehen die Modell-Autos ihre Runden und desto schneller lädt sich der Akku auf.
+                Die erarbeiteten Rundenzeiten und Höchsgeschwindigkeiten werden lokal auf einem modularen Display ausgegeben und online abgespeichert.
+            </p>
+            <br>
+            <p><b><img src="/img/iconWebsite.png" style="max-width: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website</b></p>
+            <p>
+                Um das Vergleichen mit anderen Benutzern zu ermöglichen dient diese Website als Hotspot.
+                Auf einer Bestenliste werden Rundenzeiten präsentiert und mit anderen Benutzern verglichen.
+            </p>
+            <br>
+            <p><b><img src="/img/iconTOFT.png" style="max-width: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tag der offenen Tür HTL Rennweg</b></p>
+            <p>
+                Homeracer ist auch am Tag der offenen Tür der HTL Rennweg zu sehen.
+                Das Projekt kann natürlich vorort selbst ausprobiert und die Ergebnisse live mit allen anderen Benutzern verglichen werden.
+            </p>
+        </div>
+        <div class="item">
+            <img src="/img/carreraCropSquare.png" style=" width: 100%; border-radius: 20px;">
         </div>
     </div>
 
@@ -148,15 +127,15 @@
         <h1>SPONSOREN</h1>
         <div class="w3-row w3-padding-32">
             <div>
-                <img src="/img/schrackLogo.jpg" class="w3-round w3-margin-bottom" style="width:60%">
+                <img src="/img/schrackLogo.jpg" class="logo">
             </div>
             <br />
             <div>
-                <img src="/img/azdeliveryLogo.png" class="w3-round w3-margin-bottom" style="width:60%">
+                <img src="/img/azdeliveryLogo.png" class="logo">
             </div>
             <br />
             <div>
-                <img src="/img/igusLogo.png" class="w3-round w3-margin-bottom" style="width:40%">
+                <img src="/img/igusLogo.png" class="logo">
             </div>
         </div>
     </div>
@@ -174,36 +153,34 @@
     </div>
 
     <!-- End Page Content -->
-</div>
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey">
-    <img src="/img/htl3rLogoCrop.png" style="max-height: 100px">
-    <br />
-    <br />
-    <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity" style="font-size: 50px"></i>
-    <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity" style="font-size: 50px"></i>
-    <br />
-    <br />
-    <i onclick="location.href='/datenschutz'" class="w3-hover-opacity">Datenschutzrichtlinien</i>
-    <br />
-    <i onclick="location.href='/impressum'" class="w3-hover-opacity">Impressum</i>
-    <p>Alle Rechte vorbehalten Homeracer, HTL Rennweg, Wien 2022</p>
-</footer>
-
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey">
+        <img src="/img/htl3rLogoCrop.png" style="max-height: 100px">
+        <br />
+        <br />
+        <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity" style="font-size: 50px"></i>
+        <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity" style="font-size: 50px"></i>
+        <br />
+        <br />
+        <i onclick="location.href='/datenschutz'" class="w3-hover-opacity">Datenschutzrichtlinien</i>
+        <br />
+        <i onclick="location.href='/impressum'" class="w3-hover-opacity">Impressum</i>
+        <p>Alle Rechte vorbehalten Homeracer, HTL Rennweg, Wien 2022</p>
+    </footer>
+</body>
 <script>
-var myIndex = 0;
+    var myIndex = 0;
 
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
 
 </script>
-</body>
 </html>

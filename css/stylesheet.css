@@ -4,7 +4,7 @@ body {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 50%;
 }
 
 th, td {
@@ -17,14 +17,72 @@ tr:nth-child(even) {
 }
 
 .container {
+    padding: 50px;
+    padding-top: 100px;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    align-content: center;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+
+.rundenzeit {
+    flex: 50%;
+    text-align: center;
+}
+
+.bestenliste {
+    flex: 50%;
+    text-align: center;
 }
 
 .image {
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
-    flex-basis: 100%;
+    flex: 25%;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    gap: 50px;
+    padding: 50px;
+}
+
+.item {
+    flex: 50%;
+}
+
+.logo {
+    width: 60%;
+}
+
+.logoIgus {
+    width: 40%;
+}
+
+@media all and (max-width: 1100px) {
+    .bestenliste {
+        flex: 100%;
+    }
+    .image {
+        flex: 100%;
+    }
+    table {
+        width: 100%;
+    }
+    .item {
+        flex: 100%;
+    }
+    .container2 {
+        flex-wrap: wrap;
+    }
+    .logo {
+        width: 80%;
+    }
+    .logoIgus {
+        width: 60%;
+    }
 }

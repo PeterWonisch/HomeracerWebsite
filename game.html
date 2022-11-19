@@ -21,18 +21,6 @@
             <a href="/#sponsor" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SPONSOREN</a>
             <a href="/scoreboard" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BESTENLISTE</a>
             <img src="/img/logoInverted.png" align="right" style="max-height:46px;">
-            <!--
-            <div class="w3-dropdown-hover w3-hide-small">
-          <button class="w3-padding-large w3-button" title="More">MORE<i class="fa fa-caret-down"></i></button>
-          <div class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="#" class="w3-bar-item w3-button">More</a>
-            <a href="#" class="w3-bar-item w3-button">Extra</a>
-            <a href="#" class="w3-bar-item w3-button">Stuff</a>
-          </div>
-        </div>
-
-        <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
-    -->
         </div>
     </div>
 
@@ -44,53 +32,40 @@
         <a href="/scoreboard" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BESTENLISTE</a>
     </div>
 
-    <!-- Page content -->
-
-
-
-    <div class="w3-content" style="max-width:2000px;margin-top:46px">
-        <div class="container">
-            <div class="image">
-                <img src="/img/logo2.png" style="max-width: 400px; width: 100%; border-radius: 15%;">
-            </div>
-            <div style="height: 300px">
-                <h1 id="laptime" style="font-size: 128px">Rundenzeit</h1>
-                <h1 id="laptimeA">Player A</h1>
-                <h1 id="laptimeB">Player B</h1>
-                <div id="laptimeInput" class="w3-display-container w3-center">
-                    <input type="text" id="userInput" name="userInput" onkeydown="search()"><br><br>
-                    <input type="submit" id="submit" value="Eingabe" onclick="addUser(document.getElementById('userInput').value)">
-                </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-            </div>
-            <div class="image">
-                <img src="/img/carreraCropSquare.png" align="right" style="max-width: 400px; width: 100%; border-radius: 15%;">
+<!-- Page content -->
+    <div class="container">
+        <div class="image">
+            <img src="/img/logo2.png" style="width: 100%; border-radius: 15%;">
+        </div>
+        <div class="rundenzeit">
+            <h1 id="laptime" style="font-size: 128px">Rundenzeit</h1>
+            <h1 id="laptimeA">Player A</h1>
+            <h1 id="laptimeB">Player B</h1>
+            <div id="laptimeInput" class="w3-display-container w3-center">
+                <input type="text" id="userInput" name="userInput" onkeydown="search()"><br><br>
+                <input type="submit" id="submit" value="Eingabe" onclick="addUser(document.getElementById('userInput').value)">
             </div>
         </div>
+        <div class="image">
+            <img src="/img/carreraCropSquare.png" align="right" style="width: 100%; border-radius: 15%;">
+        </div>
+    </div>
 
-        <!-- Home -->
-        <div class="w3-display-container">
-
-            <div class="w3-display-container w3-center" style="overflow-x: auto;">
-                <h1>Bestenliste</h1>
-                <h1 id="output">Output</h1>
-                <table id="table" style="margin-left: auto; margin-right: auto; width: 50%; text-align: left;">
-                    <tr id="1tr">
-                        <th>Platz</th>
-                        <th>Name</th>
-                        <th>Zeit [s]</th>
-                    </tr>
-                </table>
-            </div>
+    <!-- Home -->
+        <div>
+            <h1 style="text-align: center">Bestenliste</h1>
+            <h1 id="output">Output</h1>
+            <table id="table" align="center" style="text-align: center">
+                <tr id="1tr">
+                    <th style="width: 20%">Platz</th>
+                    <th style="width: 60%">Name</th>
+                    <th style="width: 20%">Zeit [s]</th>
+                </tr>
+            </table>
         </div>
 
-        <div class="w3-display-container w3-center">
-            <img src="/img/logo.png" style="max-width:32%">
-        </div>
+    <div class="w3-display-container w3-center">
+        <img src="/img/logo.png" style="max-width:32%">
     </div>
 
 
