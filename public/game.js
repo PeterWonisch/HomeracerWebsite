@@ -37,9 +37,15 @@ function generateTable(data) {
             }
             // creates a Text Node
             if (i) {
-                currentText = document.createTextNode(
-                    data[j][i-1]
-                );
+                if (i == 1) {
+                    currentText = document.createTextNode(
+                        data[j][i - 1]
+                    );
+                } else {
+                    currentText = document.createTextNode(
+                        data[j][i - 1] / 1000
+                    );
+                }
             } else {
                 if (j < 3) {
                     currentText = document.createElement('img');
@@ -112,7 +118,7 @@ function laptimeDecoder() {
         laptimeContainer.style.display = "block";
         laptimeAContainer.style.display = "none";
         laptimeBContainer.style.display = "none";
-        laptimeContainer.innerHTML = laptime + "ms";
+        laptimeContainer.innerHTML = laptime/1000 + "s";
         laptimeInput();
         window.scrollTo(0, 0);
 
