@@ -30,6 +30,7 @@ app.use(bodyParser.text());
 
 app.use(express.static('public'));
 app.use('/img', express.static('img'));
+app.use('/css', express.static('css'));
 
 app.post("/",(req,res) => {
     laptime = req.body; console.log(laptime); res.send("OK");
@@ -102,14 +103,14 @@ io.on('connection', (socket) => {
         
     });
     socket.on('data', (username) => {
-        fs.appendFile('scoreboard.txt', username + "," + laptime + ";", function (err) {       //change i to laptime
+        fs.appendFile('scoreboard.txt', username + "," + i + ";", function (err) {       //change i to laptime
             if (err) throw err;
             setTimeout(() => { readScoreboard() }, 100);
         });
     });
 
     socket.on('scores', readScoreboard);
-    /*
+    
     if (firstUserConnect) {
         console.log('laptime simulation started');
         firstUserConnect = 0;
@@ -117,7 +118,7 @@ io.on('connection', (socket) => {
             i++;
             io.emit("laptime", i);
         }, 10000);
-    }*/
+    }
 });
 
 
