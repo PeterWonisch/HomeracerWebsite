@@ -2,6 +2,14 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+p {
+    font-size: 18px;
+}
+
+i {
+    font-size: 18px;
+}
+
 table {
     border-collapse: collapse;
     width: 50%;
@@ -51,8 +59,33 @@ tr:nth-child(even) {
     padding: 50px;
 }
 
+.container3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    gap: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.logoBanner {
+    width: 60%;
+}
+
 .item {
     flex: 50%;
+}
+
+
+.item21 {
+    flex: 60%;
+}
+
+.item22 {
+    flex: 40%;
 }
 
 .logo {
@@ -70,13 +103,30 @@ tr:nth-child(even) {
     .image {
         flex: 100%;
     }
+    .carrera {
+        content: url("/img/carreraCrop32.png");
+    }
+    .logoBanner {
+        width: 100%;
+    }
     table {
         width: 100%;
     }
     .item {
         flex: 100%;
     }
+    .item21 {
+        flex: 100%;
+        order: 2;
+    }
+    .item22 {
+        flex: 100%;
+        order: 1;
+    }
     .container2 {
+        flex-wrap: wrap;
+    }
+    .container3 {
         flex-wrap: wrap;
     }
     .logo {
