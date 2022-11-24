@@ -70,7 +70,6 @@ tr:nth-child(even) {
     padding-right: 50px;
 }
 
-
 .logoBanner {
     width: 60%;
 }
@@ -78,7 +77,6 @@ tr:nth-child(even) {
 .item {
     flex: 50%;
 }
-
 
 .item21 {
     flex: 60%;
@@ -130,9 +128,11 @@ tr:nth-child(even) {
     }
     .container2 {
         flex-wrap: wrap;
+        padding: 20px;
     }
     .container3 {
         flex-wrap: wrap;
+        padding: 20px;
     }
     .logo {
         width: 80%;
