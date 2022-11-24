@@ -128,11 +128,13 @@ tr:nth-child(even) {
     }
     .container2 {
         flex-wrap: wrap;
-        padding: 20px;
+        gap: 0px;
+        padding: 15px;
     }
     .container3 {
         flex-wrap: wrap;
-        padding: 20px;
+        gap: 0px;
+        padding: 15px;
     }
     .logo {
         width: 80%;
