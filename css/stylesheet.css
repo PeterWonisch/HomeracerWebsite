@@ -96,12 +96,17 @@ tr:nth-child(even) {
     width: 40%;
 }
 
+.endLogo {
+    width: 34%;
+}
+
 @media all and (max-width: 1100px) {
     .bestenliste {
         flex: 100%;
     }
     .image {
         flex: 100%;
+        display: none;
     }
     .carrera {
         content: url("/img/carreraCrop32.png");
@@ -134,5 +139,8 @@ tr:nth-child(even) {
     }
     .logoIgus {
         width: 60%;
+    }
+    .endLogo {
+        width: 100%;
     }
 }
