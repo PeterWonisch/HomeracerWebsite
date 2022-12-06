@@ -41,36 +41,38 @@
         <!-- Home -->
         <div class="w3-display-container w3-center">
             <img src="/img/logo.png" style="max-width:32%">
-            <div class="w3-display-bottom w3-container w3-padding-32">
+            <div class="w3-display-bottom w3-container" style="margin-bottom: 30px;">
                 <h1>Impressum</h1>
-                <p>
-                    <b>Niklas Vögl</b><br />
-                    Rennweg 89b<br />
-                    1030 Wien<br />
-                    Österreich<br />
-                    <br />
-                    <b>Kontakt</b><br />
-                    <i class="fa fa-phone" style="width:30px"></i> Tel.: +43 664 73094447<br>
-                    <i class="fa fa-envelope" style="width:30px"> </i> Email: homeracerhtlrennweg@outlook.com<br>
-                    Website: www.homeracer.at<br />
-                </p>
+                <br />
+                <p><b>Niklas Vögl</b></p>
+                <p>Rennweg 89b</p>
+                <p>1030 Wien</p>
+                <p>Österreich</p>
+                <br />
+                <p><b>Kontakt</b></p>
+                <p class="hover-opacity" onclick="location.href='tel:+43 664 73094447'"><i class="fa fa-phone" style="width:30px"></i>Tel.: +43 664 73094447</p>
+                <p class="hover-opacity" onclick="location.href='mailto:homeracerhtlrennweg@outlook.com'"><i class="fa fa-envelope" style="width:30px"></i>Email: homeracerhtlrennweg@outlook.com</p>
+                <p class="hover-opacity" onclick="location.href='https://www.homeracer.at/'"><img src="/img/iconWebsite.png" style="width: 20px; margin-right: 5px;" />Website: www.homeracer.at</p>
             </div>
         </div>
     </div>
 </body>
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey">
-    <img src="/img/htl3rLogoCrop.png" style="max-height: 100px">
-    <br />
-    <br />
-    <i onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" class="fa fa-instagram w3-hover-opacity" style="font-size: 50px"></i>
-    <i onclick="location.href='https://twitter.com/HomeracerHTL3R'" class="fa fa-twitter w3-hover-opacity" style="font-size: 50px"></i>
-    <br />
-    <br />
-    <i onclick="location.href='/datenschutz'" class="w3-hover-opacity">Datenschutzrichtlinien</i>
-    <br />
-    <i onclick="location.href='/impressum'" class="w3-hover-opacity">Impressum</i>
-    <p>Alle Rechte vorbehalten Homeracer, HTL Rennweg, Wien 2022</p>
+<footer class="w3-container w3-center w3-light-grey">
+    <div style="margin-top: 40px;">
+        <img class="hover-opacity" src="/img/htl3rLogoCrop.png" onclick="location.href='https://www.htlrennweg.at/'" style="max-height: 100px">
+    </div>
+    <div class="w3-opacity" style="margin-bottom: 40px">
+        <div class="container-social">
+            <i class="fa fa-instagram hover-opacity" onclick="location.href='https://www.instagram.com/homeracerhtlrennweg/?theme=dark'" style="font-size: 70px"></i>
+            <i class="fa fa-twitter hover-opacity" onclick="location.href='https://twitter.com/HomeracerHTL3R'" style="font-size: 70px"></i>
+        </div>
+        <div>
+            <p class="hover-opacity" onclick="location.href='/datenschutz'" style="margin: -20px;"><em>Datenschutzrichtlinien</em></p>
+            <p class="hover-opacity" onclick="location.href='/impressum'"><em>Impressum</em></p>
+            <p>Alle Rechte vorbehalten Homeracer, HTL Rennweg, Wien 2022</p>
+        </div>
+    </div>
 </footer>
 
 <script>
