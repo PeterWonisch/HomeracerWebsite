@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css",
-    "\\img",
     "\\public",
     "\\public\\socket.io"
   ],
-  "SelectedNode": "\\img\\wonischPortrait.png",
   "PreviewInSolutionExplorer": false
 }
