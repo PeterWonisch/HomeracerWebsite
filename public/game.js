@@ -8,9 +8,10 @@ let laptimeB = "";
 let username = "";
 let place = 0;
 
+let headingContainer = document.querySelector("#heading");
 let laptimeContainer = document.querySelector("#laptime");
-let laptimeAContainer = document.querySelector("#laptimeA");
-let laptimeBContainer = document.querySelector("#laptimeB");
+let lapcountAContainer = document.querySelector("#lapcountA");
+let lapcountBContainer = document.querySelector("#lapcountB");
 let laptimeInputContainer = document.querySelector("#laptimeInput");
 let outputContainer = document.querySelector("#output");
 let userInputContainer = document.querySelector("#userInput");
@@ -77,9 +78,10 @@ function generateTable(data) {
 }
 
 function startUp() {
-    laptimeContainer.style.display = "block";
-    laptimeAContainer.style.display = "none";
-    laptimeBContainer.style.display = "none";
+    headingContainer.style.display = "block";
+    laptimeContainer.style.display = "none";
+    lapcountAContainer.style.display = "none";
+    lapcountBContainer.style.display = "none";
     laptimeInputContainer.style.display = "none";
     outputContainer.style.display = "none";
     socket.emit('scores');
@@ -115,14 +117,26 @@ function laptimeDecoder() {
         laptimeBContainer.style.display = "block";
         laptimeBContainer.innerHTML = laptimeB;
     } else {*/
+        headingContainer.innerHTML = "Rundenzeit";
         laptimeContainer.style.display = "block";
-        laptimeAContainer.style.display = "none";
-        laptimeBContainer.style.display = "none";
+        lapcountAContainer.style.display = "none";
+        lapcountBContainer.style.display = "none";
         laptimeContainer.innerHTML = laptime/1000 + "s";
         laptimeInput();
         window.scrollTo(0, 0);
 
     //}
+}
+
+function lapcountDecoder() {
+    headingContainer.innerHTML = "Rundenzähler";
+    laptimeContainer.style.display = "none";
+    lapcountAContainer.style.display = "block";
+    lapcountBContainer.style.display = "block";
+    lapcountAContainer.innerHTML = lapcountCar1;
+    lapcountBContainer.innerHTML = lapcountCar2;
+    window.scrollTo(0, 0);
+
 }
 
 function laptimeInput() {
@@ -139,6 +153,12 @@ window.addEventListener("load", () => {
 
     socket.on("laptime", (data) => {
         console.log(data); laptime = data; laptimeDecoder();
+    });
+    socket.on("lapcountCar1", (data) => {
+        console.log(data); lapcountCar1 = data; lapcountDecoder();
+    });
+    socket.on("lapcountCar2", (data) => {
+        console.log(data); lapcountCar2 = data; lapcountDecoder();
     });
 
     socket.on("scores", (data) => { generateTable(data) });

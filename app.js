@@ -15,9 +15,14 @@ const PORT = process.env.PORT || 3000
 const appDir = dirname(require.main.filename);
 
 let i = 0;
-let laptime = "";
+let data = "";
+let bestLaptime = "";
 let firstUserConnect = 1;
 let scores;
+let twoPlayer = false; //false = Singleplayer; true = 2 Player
+let gamemode = false; //false = full speed cycling; true = measured cycling
+let recording = false;
+let state = 0;
 
 //for urlencoded message
 //app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,8 +38,7 @@ app.use('/img', express.static('img'));
 app.use('/css', express.static('css'));
 
 app.post("/",(req,res) => {
-    laptime = req.body; console.log(laptime); res.send("OK");
-    io.emit("laptime", laptime);
+    console.log('apppost'); data = req.body; console.log(data); res.send("OK"); dataDecoder();
 });
 
 app.get('/', (req, res) => {
@@ -70,6 +74,60 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 */
 
+function stateMachine() {
+    switch (state) {
+        case 0:
+            console.log('state0');
+            //if (data < bestLaptime) {
+                bestLaptime = data;
+                io.emit("laptime", bestLaptime);
+            //}
+            break;
+        case 1:
+            console.log('state1');
+            if (data[0] == "a") {
+                data.replace('a', '');
+                io.emit("lapcountCar1", data);
+            }
+            if (data[0] == "b") {
+                data.replace('b', '');
+                io.emit("lapcountCar2", data);
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+function dataDecoder() {
+    console.log('dataDecoder');
+    switch (data) {
+        case 'twoPlayerFalse':
+            twoPlayer = false;
+            break;
+        case 'twoPlayerTrue':
+            twoPlayer = true;
+            break;
+        case 'gamemodeFalse':
+            gamemode = false;
+            break;
+        case 'gamemodeTrue':
+            gamemode = true;
+            break;
+        case 'recordingReset':
+            bestLaptime = 999;
+            break;
+        default:
+            console.log('dataDecoder_default');
+            stateMachine();
+            break;
+    }
+    if (!twoPlayer && !gamemode || !twoPlayer && gamemode) {
+        state = 0;
+    } else if (twoPlayer && !gamemode || twoPlayer && gamemode) {
+        state = 1;
+    }
+}
 
 
 io.on('connection', (socket) => {
@@ -86,7 +144,7 @@ io.on('connection', (socket) => {
                     if (+scores[i][1] > +scores[j][1]) {
                         const temp = scores[i];
                         scores[i] = scores[j];
-                        scores[j] = temp
+                        scores[j] = temp;
                     }
                 }
             }
