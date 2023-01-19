@@ -78,10 +78,7 @@ function stateMachine() {
     switch (state) {
         case 0:
             console.log('state0');
-            //if (data < bestLaptime) {
-                bestLaptime = data;
-                io.emit("laptime", bestLaptime);
-            //}
+            io.emit("laptime", laptime);
             break;
         case 1:
             console.log('state1');
@@ -114,11 +111,9 @@ function dataDecoder() {
         case 'gamemodeTrue':
             gamemode = true;
             break;
-        case 'recordingReset':
-            bestLaptime = 999;
-            break;
         default:
             console.log('dataDecoder_default');
+            laptime = data;
             stateMachine();
             break;
     }
