@@ -186,6 +186,9 @@ tr:nth-child(even) {
         padding: 15px;
         padding-bottom: 40px;
     }
+    .container-sponsor {
+        padding: 15px;
+    }
     .endLogo {
         width: 100%;
     }
