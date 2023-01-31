@@ -101,7 +101,7 @@ tr:nth-child(even) {
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 60px;
     padding-left: 50px;
     padding-right: 50px;
 }
