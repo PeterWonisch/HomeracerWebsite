@@ -19,6 +19,8 @@ let data = "";
 let bestLaptime = "";
 let firstUserConnect = 1;
 let scores;
+let string;
+let speed;
 let twoPlayer = false; //false = Singleplayer; true = 2 Player
 let gamemode = false; //false = full speed cycling; true = measured cycling
 let recording = false;
@@ -74,56 +76,10 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 */
 
-function stateMachine() {
-    switch (state) {
-        case 0:
-            console.log('state0');
-            io.emit("laptime", laptime);
-            break;
-        case 1:
-            console.log('state1');
-            if (data[0] == "a") {
-                data.replace('a', '');
-                io.emit("lapcountCar1", data);
-            }
-            if (data[0] == "b") {
-                data.replace('b', '');
-                io.emit("lapcountCar2", data);
-            }
-            break;
-        default:
-            break;
-    }
-}
-
 function dataDecoder() {
     console.log('dataDecoder');
-    switch (data) {
-        case 'twoPlayerFalse':
-            twoPlayer = false;
-            break;
-        case 'twoPlayerTrue':
-            twoPlayer = true;
-            break;
-        case 'gamemodeFalse':
-            gamemode = false;
-            break;
-        case 'gamemodeTrue':
-            gamemode = true;
-            break;
-        default:
-            console.log('dataDecoder_default');
-            laptime = data;
-            stateMachine();
-            break;
-    }
-    if (!twoPlayer && !gamemode || !twoPlayer && gamemode) {
-        state = 0;
-    } else if (twoPlayer && !gamemode || twoPlayer && gamemode) {
-        state = 1;
-    }
+    io.emit("laptime+speed", data);
 }
-
 
 io.on('connection', (socket) => {
     console.log('a user connected');
