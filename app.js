@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3000
 const appDir = dirname(require.main.filename);
 
 let i = 0;
+let laptime;
 let data = "";
 let bestLaptime = "";
 let firstUserConnect = 1;
@@ -78,6 +79,9 @@ express()
 
 function dataDecoder() {
     console.log('dataDecoder');
+    string = String(data).split(';');
+    laptime = string[0];
+    speed = string[1];
     io.emit("laptime+speed", data);
 }
 
@@ -125,7 +129,7 @@ io.on('connection', (socket) => {
         firstUserConnect = 0;
         setInterval(() => {
             i++;
-            io.emit("laptime", i);
+            io.emit("laptime+speed", i + ";56.9");
         }, 10000);
     }*/
 });
